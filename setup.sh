@@ -21,3 +21,6 @@ $HADOOP_PATH/bin/hdfs namenode -format -nonInteractive
 chmod -R 777 /tmp/hadoop-$USER_TO_USE/dfs
 
 # Make sure all of the nodes have trusted SSH access
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
