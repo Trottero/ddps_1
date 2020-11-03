@@ -11,5 +11,5 @@ chmod a+x stop.sh
 # For every worker in the list, copy over the files.
 while read worker; do
   echo "$worker"
-  scp -p -r . $worker/
+  scp -p -r . $worker:/
 done <$HADOOP_PATH/etc/hadoop/workers
