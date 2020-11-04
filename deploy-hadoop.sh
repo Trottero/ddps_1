@@ -2,9 +2,9 @@
 # To be run on the main node, initializes all worker nodes with the proper hadoop binaries
 
 # Make all scripts executable
-chmod a+x setup.sh
-chmod a+x start.sh
-chmod a+x stop.sh
+# chmod a+x setup.sh
+# chmod a+x start.sh
+# chmod a+x stop.sh
 
 # First install this node
 chmod a+x ./ddps_1/install.sh
