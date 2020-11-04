@@ -1,18 +1,10 @@
 # Setup.sh
 # Creates required folders and sets up required permissions / properties
 
-# script variables
-USER_TO_USE=mewyu
+# Load in environment variables
+chmod a+x environmentvar.sh
+. ./environmentvar.sh
 
-# setup environment variables
-export HDFS_NAMENODE_USER=$USER_TO_USE
-export HDFS_DATANODE_USER=$USER_TO_USE
-export HDFS_SECONDARYNAMENODE_USER=$USER_TO_USE
-export YARN_RESOURCEMANAGER_USER=$USER_TO_USE
-export YARN_NODEMANAGER_USER=$USER_TO_USE
-
-export HADOOP_PATH=./hadoop-3.3.0
-export HADOOP_HOME=/home/mewyu/ddps_1/hadoop-3.3.0
 # Remove logs from previous setup
 rm -R $HADOOP_HOME/logs
 
@@ -29,7 +21,6 @@ chmod a+x $HADOOP_PATH/bin/hdfs
 $HADOOP_PATH/bin/hdfs namenode -format -nonInteractive -force
 
 # Give permissions to HDFS temp folder
-chmod -R 777 /tmp/hadoop-$USER_TO_USE/dfs
 chmod -R 777 /home/$USER_TO_USE/ddps_1/hadoopstorage/namenodedir
 
 
