@@ -18,6 +18,7 @@ chmod a+x ./ddps_1/environmentvar.sh
 # And execute install.sh aswell.
 # DO NOT: add the namenode to the workers list.
 cat /home/$USER_TO_USE/ddps_1/hadoopconfig/workers | while read worker;
+do
   echo "$worker"
   # Remove all older folders which might still be on there.
   ssh $worker rm -r /home/$USER_TO_USE/ddps_1 -n
