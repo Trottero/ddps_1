@@ -7,8 +7,8 @@
 # chmod a+x stop.sh
 
 # First install this node
-chmod a+x ./ddps_1/install.sh
-. ./ddps_1/install.sh
+# chmod a+x ./ddps_1/install.sh
+# . ./ddps_1/install.sh
 
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.
