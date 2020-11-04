@@ -10,8 +10,6 @@ chmod a+x stop.sh
 chmod a+x install.sh
 . ./install.sh
 
-cd ..
-cd ddps_1
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.
 # DO NOT: add the namenode to the workers list.
