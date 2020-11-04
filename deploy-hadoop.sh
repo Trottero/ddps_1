@@ -10,10 +10,13 @@ chmod a+x stop.sh
 chmod a+x install.sh
 . ./install.sh
 
+cd ..
+cd ddps_1
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.
 # DO NOT: add the namenode to the workers list.
-while read worker; do
+cat /home/$USER_TO_USE/ddps_1/hadoopconfig/workers | while read worker;
+do
   echo "$worker"
   # Remove all older folders which might still be on there.
   ssh $worker rm -r /home/$USER_TO_USE/ddps_1
@@ -25,4 +28,4 @@ while read worker; do
   ssh $worker chmod a+x /home/$USER_TO_USE/ddps_1/install.sh
   ssh $worker /home/$USER_TO_USE/ddps_1/install.sh
   echo "Starting next iteration"
-done </home/$USER_TO_USE/ddps_1/hadoopconfig/workers
+done
