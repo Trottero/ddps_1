@@ -10,8 +10,8 @@ curl -o /home/$USER_TO_USE/ddps_1/hadoop.tar.gz https://apache.mirror.wearetripl
 
 echo "Unpacking hadoop"
 # Unpack hadoop
-mkdir $HADOOP_HOME
-tar -xzf ./ddps_1/hadoop.tar.gz -C $HADOOP_HOME/
+mkdir ./ddps_1/hadoop-3.3.0
+tar -xzf ./ddps_1/hadoop.tar.gz -C ./ddps_1/hadoop-3.3.0
 
 echo "Applying patch to hadoop"
 # Apply patch to hadoop config files
