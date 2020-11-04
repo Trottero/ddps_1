@@ -21,13 +21,13 @@ cat /home/$USER_TO_USE/ddps_1/hadoopconfig/workers | while read worker;
 do
   echo "$worker"
   # Remove all older folders which might still be on there.
-  ssh $worker rm -r /home/$USER_TO_USE/ddps_1 -n
+  echo "" | ssh $worker rm -r /home/$USER_TO_USE/ddps_1
 
   # Clone the new repo in there.
   echo "Cloning repo"
-  ssh $worker git clone https://github.com/Trottero/ddps_1 /home/$USER_TO_USE/ddps_1 -n
+  echo "" | ssh $worker git clone https://github.com/Trottero/ddps_1 /home/$USER_TO_USE/ddps_1
   echo "Setting permissions and downloading hadoop"
-  ssh $worker chmod a+x /home/$USER_TO_USE/ddps_1/install.sh -n
-  ssh $worker /home/$USER_TO_USE/ddps_1/install.sh -n
+  echo "" | ssh $worker chmod a+x /home/$USER_TO_USE/ddps_1/install.sh
+  echo "" | ssh $worker /home/$USER_TO_USE/ddps_1/install.sh
   echo "Starting next iteration"
 done
