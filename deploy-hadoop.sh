@@ -7,14 +7,17 @@ chmod a+x start.sh
 chmod a+x stop.sh
 
 # First install this node
-chmod a+x install.sh
-. ./install.sh
+# chmod a+x install.sh
+# . ./install.sh
+
+chmod a+x environmentvar.sh
+. ./environmentvar.sh
 
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.
 while read worker; do
   echo "$worker"
-  ssh $worker git clone https://github.com/Trottero/ddps_1
-  ssh $worker chmod a+x ddps_1/install.sh
-  ssh $worker ddps_1/install.sh
+  ssh $worker git clone https://github.com/Trottero/ddps_1 /home/$USER_TO_USE/ddps_1
+  ssh $worker chmod a+x /home/$USER_TO_USE/ddps_1/install.sh
+  ssh $worker /home/$USER_TO_USE/ddps_1/install.sh
 done <$HADOOP_PATH/etc/hadoop/workers

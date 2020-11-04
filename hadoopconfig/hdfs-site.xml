@@ -22,10 +22,10 @@
     </property>
     <property>
         <name>dfs.namenode.name.dir</name>
-        <value>/home/mewyu/ddps_1/hadoopstorage/namenodedir</value>
+        <value>/home/ddps2018/ddps_1/hadoopstorage/namenodedir</value>
     </property>
     <property>
         <name>dfs.datanode.data.dir</name>
-        <value>/home/mewyu/ddps_1/hadoopstorage/data</value>
+        <value>/home/ddps2018/ddps_1/hadoopstorage/data</value>
     </property>
 </configuration>
