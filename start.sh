@@ -12,3 +12,9 @@ $HADOOP_PATH/sbin/start-dfs.sh
 # YARN Cluster
 chmod a+x $HADOOP_PATH/sbin/start-yarn.sh
 $HADOOP_PATH/sbin/start-yarn.sh
+
+# Make HDFS directories on workers to execute MapReduce jobs:
+echo "making dirs"
+$HADOOP_PATH/bin/hdfs dfs -mkdir /user
+$HADOOP_PATH/bin/hdfs dfs -mkdir /user/$HDFS_DATANODE_USER
+echo "finished making dirs"
