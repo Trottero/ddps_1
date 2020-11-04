@@ -6,6 +6,10 @@
 # chmod a+x start.sh
 # chmod a+x stop.sh
 
+# Load environment variables
+chmod a+x ./ddps_1/environmentvar.sh
+. ./ddps_1/environmentvar.sh
+
 # First install this node
 # chmod a+x ./ddps_1/install.sh
 # . ./ddps_1/install.sh
