@@ -24,4 +24,5 @@ while read worker; do
   echo "Setting permissions and downloading hadoop"
   ssh $worker chmod a+x /home/$USER_TO_USE/ddps_1/install.sh
   ssh $worker /home/$USER_TO_USE/ddps_1/install.sh
+  echo "Starting next iteration"
 done <$HADOOP_PATH/etc/hadoop/workers

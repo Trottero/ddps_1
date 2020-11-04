@@ -16,8 +16,12 @@ tar -xzf hadoop.tar.gz
 
 echo "Applying patch to hadoop"
 # Apply patch to hadoop config files
-cd ./hadoopconfig
-cp * $HADOOP_HOME/etc/hadoop
-cd ..
 
 cd ..
+cd ddps_1
+cd hadoopconfig
+cp * $HADOOP_HOME/etc/hadoop
+cd ..
+cd ..
+
+echo "Done installing!"
