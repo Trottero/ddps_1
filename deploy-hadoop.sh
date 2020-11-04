@@ -7,14 +7,12 @@ chmod a+x start.sh
 chmod a+x stop.sh
 
 # First install this node
-# chmod a+x install.sh
-# . ./install.sh
-
-chmod a+x environmentvar.sh
-. ./environmentvar.sh
+chmod a+x install.sh
+. ./install.sh
 
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.
+# DO NOT: add the namenode to the workers list.
 while read worker; do
   echo "$worker"
   ssh $worker git clone https://github.com/Trottero/ddps_1 /home/$USER_TO_USE/ddps_1
