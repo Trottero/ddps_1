@@ -25,4 +25,4 @@ while read -u10 worker; do
   ssh $worker chmod a+x /home/$USER_TO_USE/ddps_1/install.sh
   ssh $worker /home/$USER_TO_USE/ddps_1/install.sh
   echo "Starting next iteration"
-done 10<./ddps_1/hadoopconfig/workers
+done 10</home/$USER_TO_USE/ddps_1/hadoopconfig/workers
