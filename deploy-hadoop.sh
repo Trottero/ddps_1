@@ -17,16 +17,16 @@ chmod a+x ./ddps_1/environmentvar.sh
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.
 # DO NOT: add the namenode to the workers list.
-while read -u10 worker; do
+cat /home/$USER_TO_USE/ddps_1/hadoopconfig/workers | while read worker;
   echo "$worker"
   # Remove all older folders which might still be on there.
-  ssh $worker rm -r /home/$USER_TO_USE/ddps_1
+  ssh $worker rm -r /home/$USER_TO_USE/ddps_1 -n
 
   # Clone the new repo in there.
   echo "Cloning repo"
-  ssh $worker git clone https://github.com/Trottero/ddps_1 /home/$USER_TO_USE/ddps_1
+  ssh $worker git clone https://github.com/Trottero/ddps_1 /home/$USER_TO_USE/ddps_1 -n
   echo "Setting permissions and downloading hadoop"
-  ssh $worker chmod a+x /home/$USER_TO_USE/ddps_1/install.sh
-  ssh $worker /home/$USER_TO_USE/ddps_1/install.sh
+  ssh $worker chmod a+x /home/$USER_TO_USE/ddps_1/install.sh -n
+  ssh $worker /home/$USER_TO_USE/ddps_1/install.sh -n
   echo "Starting next iteration"
-done 10</home/$USER_TO_USE/ddps_1/hadoopconfig/workers
+done
