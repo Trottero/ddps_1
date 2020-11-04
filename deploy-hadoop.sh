@@ -13,7 +13,7 @@ chmod a+x ./ddps_1/install.sh
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.
 # DO NOT: add the namenode to the workers list.
-while read -u 10 worker; do
+while read -u10 worker; do
   echo "$worker"
   # Remove all older folders which might still be on there.
   ssh $worker rm -r /home/$USER_TO_USE/ddps_1
