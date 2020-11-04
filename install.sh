@@ -21,5 +21,6 @@ cd ..
 cd ddps_1
 cd hadoopconfig
 cp * $HADOOP_HOME/etc/hadoop
+cd ..
 
 echo "Done installing!"
