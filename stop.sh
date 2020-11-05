@@ -10,3 +10,6 @@ $HADOOP_PATH/sbin/stop-dfs.sh
 # Stop YARN cluster
 chmod a+x $HADOOP_PATH/sbin/stop-yarn.sh
 $HADOOP_PATH/sbin/stop-yarn.sh
+
+# Stop history server
+$HADOOP_HOME/bin/mapred --daemon stop historyserver

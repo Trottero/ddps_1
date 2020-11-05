@@ -9,10 +9,11 @@ chmod a+x environmentvar.sh
 rm -R $HADOOP_HOME/logs
 
 # Clean out data results from previous steps
-rm -R /home/$USER_TO_USE/ddps_1/hadoopstorage
+# rm -R /home/$USER_TO_USE/ddps_1/hadoopstorage
 
 # Delete the old namenode folder
-rm - r /tmp/hadoop-$USER_TO_USE/
+rm -R /tmp/hadoop-$USER_TO_USE/
+
 
 # Format the path for temp storage to set up HDFS
 chmod a+x $HADOOP_PATH/bin/hdfs

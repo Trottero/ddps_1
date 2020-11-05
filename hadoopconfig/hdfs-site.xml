@@ -30,6 +30,6 @@
     </property> -->
       <property>
         <name>dfs.hosts</name>
-        <value>/home/ddps2018/ddps_1/hadoopconfig/workers</value>
+        <value>/home/mewyu/ddps_1/hadoopconfig/workers</value>
     </property>
 </configuration>

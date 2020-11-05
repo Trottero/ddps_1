@@ -21,7 +21,7 @@ cat /home/$USER_TO_USE/ddps_1/hadoopconfig/workers | while read worker;
 do
   echo "$worker"
   # Remove all older folders which might still be on there.
-  echo "" | ssh $worker rm -r /home/$USER_TO_USE/ddps_1
+  # echo "" | ssh $worker rm -r /home/$USER_TO_USE/ddps_1
 
   # Clone the new repo in there.
   echo "Cloning repo"

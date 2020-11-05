@@ -13,8 +13,27 @@ $HADOOP_PATH/sbin/start-dfs.sh
 chmod a+x $HADOOP_PATH/sbin/start-yarn.sh
 $HADOOP_PATH/sbin/start-yarn.sh
 
+# Removing old working dirs
+echo "Removing old dirs"
+$HADOOP_PATH/bin/hdfs dfs -rm -r /user
+$HADOOP_PATH/bin/hdfs dfs -rm -r /logs
+$HADOOP_PATH/bin/hdfs dfs -rm -r /mr-history
+
 # Make HDFS directories on workers to execute MapReduce jobs:
-echo "making dirs"
+echo "Making new dirs"
+$HADOOP_PATH/bin/hdfs dfs -mkdir -p /mr-history/tmp
+$HADOOP_PATH/bin/hdfs dfs -mkdir -p /mr-history/done
+
+$HADOOP_PATH/bin/hdfs dfs -mkdir /logs
+$HADOOP_PATH/bin/hdfs dfs -chmod 1777 /logs
+
+$HADOOP_PATH/bin/hdfs dfs -chmod 1777 /mr-history
+$HADOOP_PATH/bin/hdfs dfs -chmod 1777 /mr-history/tmp
+$HADOOP_PATH/bin/hdfs dfs -chmod 1777 /mr-history/done
+
 $HADOOP_PATH/bin/hdfs dfs -mkdir /user
 $HADOOP_PATH/bin/hdfs dfs -mkdir /user/$HDFS_DATANODE_USER
-echo "finished making dirs"
+
+# History server
+echo "Starting historyserver"
+$HADOOP_HOME/bin/mapred --daemon start historyserver

@@ -1,5 +1,5 @@
 # script variables
-export USER_TO_USE=ddps2018
+export USER_TO_USE=mewyu
 
 # setup environment variables
 export HDFS_NAMENODE_USER=$USER_TO_USE
