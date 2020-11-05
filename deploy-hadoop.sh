@@ -29,5 +29,5 @@ do
   echo "Setting permissions and downloading hadoop"
   echo "" | ssh $worker chmod a+x /home/$USER_TO_USE/ddps_1/install.sh
   echo "" | ssh $worker /home/$USER_TO_USE/ddps_1/install.sh
-  echo "Starting next iteration"
+  echo "Finished configuring node $worker"
 done
