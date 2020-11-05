@@ -19,7 +19,7 @@
 <configuration>
   <property>
     <name>mapreduce.jobhistory.address</name>
-    <value>localhost:10020</value>
+    <value>node105:10020</value>
   </property>
   <property>
     <name>mapreduce.framework.name</name>
