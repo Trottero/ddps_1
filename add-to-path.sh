@@ -1,0 +1,1 @@
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin

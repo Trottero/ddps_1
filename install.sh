@@ -17,10 +17,7 @@ echo "Unpacking hadoop"
 mkdir ./ddps_1/hadoop-3.3.0
 tar -xzf ./ddps_1/hadoop.tar.gz -C ./ddps_1
 
-echo "Applying patch to hadoop"
-# Apply patch to hadoop config files
-
-
-cp ./ddps_1/hadoopconfig/* $HADOOP_HOME/etc/hadoop
+chmod a+x ~/ddps_1/reload-configs.sh
+. ~/ddps_1/reload-configs.sh
 
 echo "Done installing!"

@@ -22,11 +22,7 @@
     <value>localhost:10020</value>
   </property>
   <property>
-    <name>mapreduce.jobhistory.done-dir</name>
-    <value>/mr-history/done</value>
-  </property>
-  <property>
-    <name>mapreduce.jobhistory.intermediate-done-dir</name>
-    <value>/mr-history/tmp</value>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
   </property>
 </configuration>
