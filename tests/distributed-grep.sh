@@ -13,7 +13,6 @@ rm -r ~/ddps_1/output
 # Run job
 $HADOOP_PATH/bin/yarn jar $HADOOP_PATH/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.0.jar grep input output 'dfs[a-z.]+'
 
-# $HADOOP_PATH/bin/yarn jar $HADOOP_PATH/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.0.jar pi 16 10000
 
 # Copy output files back over
 mkdir output
