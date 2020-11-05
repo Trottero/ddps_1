@@ -33,7 +33,7 @@ deploy_to_node(){
 # DO NOT: add the namenode to the workers list.
 cat /home/$USER_TO_USE/ddps_1/hadoopconfig/workers | while read worker;
 do
-  deploy_to_node "$worker" &
+  (deploy_to_node "$worker" &)
 done
 
 wait
