@@ -23,6 +23,8 @@ mkdir /home/$USER_TO_USE/ddps_1/hadoopstorage
 mkdir /home/$USER_TO_USE/ddps_1/hadoopstorage/data
 mkdir /home/$USER_TO_USE/ddps_1/hadoopstorage/namenodedir
 
+# Remove old data dir.
+rm -r /tmp/hadoop-$USER_TO_USE
 
 # Download hadoop
 curl -o /home/$USER_TO_USE/ddps_1/hadoop.tar.gz https://apache.mirror.wearetriple.com/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz
