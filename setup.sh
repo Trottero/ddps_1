@@ -28,7 +28,6 @@ $HADOOP_PATH/bin/hdfs namenode -format -nonInteractive -force
 # Give permissions to HDFS temp folder
 chmod -R 777 /home/$USER_TO_USE/ddps_1/hadoopstorage/namenodedir
 
-
 # Make sure all of the nodes have trusted SSH access
 # ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 # cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
