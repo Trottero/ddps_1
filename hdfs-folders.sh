@@ -27,3 +27,9 @@ $HADOOP_PATH/bin/hadoop fs -mkdir /user/hive/warehouse
 $HADOOP_PATH/bin/hadoop fs -chmod g+w /tmp
 $HADOOP_PATH/bin/hadoop fs -chmod g+w /user/hive
 $HADOOP_PATH/bin/hadoop fs -chmod g+w /user/hive/warehouse
+
+# Benchmark folders
+$HADOOP_PATH/bin/hdfs dfs -mkdir /data/
+$HADOOP_PATH/bin/hdfs dfs -mkdir /data/grep
+$HADOOP_PATH/bin/hdfs dfs -chmod 1777 /data
+$HADOOP_PATH/bin/hdfs dfs -chmod 1777 /data/grep

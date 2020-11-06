@@ -29,7 +29,7 @@ rm -r /tmp/hadoop-$USER_TO_USE
 
 echo "Downloading Hadoop"
 # Download hadoop
-curl -o ~/ddps_1/hadoop.tar.gz https://ftp.nluug.nl/internet/apache/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz &
+curl -o ~/ddps_1/hadoop.tar.gz https://ftp.nluug.nl/internet/apache/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz &
 
 echo "Downloading Hive"
 curl -o ~/ddps_1/hive.tar.gz https://ftp.nluug.nl/internet/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz &
@@ -38,7 +38,7 @@ wait
 
 echo "Unpacking hadoop"
 # Unpack hadoop
-mkdir ~/ddps_1/hadoop-3.1.3
+mkdir ~/ddps_1/hadoop-3.3.0
 tar -xzf ~/ddps_1/hadoop.tar.gz -C ~/ddps_1
 
 
