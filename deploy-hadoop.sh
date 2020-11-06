@@ -19,6 +19,11 @@ chmod a+x ./ddps_1/install.sh
 # DO NOT: add the namenode to the workers list.
 cat /home/$USER_TO_USE/ddps_1/hadoopconfig/workers | while read worker;
 do
+  if [[ "$worker" == 'localhost' ]]; then
+    echo "Skipping localhost initialization"
+    continue
+  fi
+  
   echo "$worker"
   # Remove all older folders which might still be on there.
   echo "" | ssh $worker rm -r /home/$USER_TO_USE/ddps_1
