@@ -45,7 +45,7 @@ do
   echo "" | ssh $worker git clone https://github.com/Trottero/ddps_1 ~/ddps_1
   echo "Setting permissions and downloading hadoop"
   echo "" | ssh $worker chmod a+x ~/ddps_1/install.sh
-  echo "" | ssh $worker ~/ddps_1/install.sh &
+  echo "" | ssh $worker ~/ddps_1/install.sh 
   echo "Finished configuring node $worker"
 done
 
