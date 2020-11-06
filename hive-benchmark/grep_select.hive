@@ -1,0 +1,7 @@
+hdfs dfs -mv /user/hive/warehouse/grep/* /data/grep;
+DROP TABLE grep;
+DROP TABLE grep_select;
+CREATE TABLE grep ( key STRING, field STRING ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;
+LOAD DATA INPATH '/data/grep/*' INTO TABLE grep;
+CREATE TABLE grep_select ( key STRING, field STRING );
+INSERT OVERWRITE TABLE grep_select SELECT * FROM grep WHERE field LIKE '%XYZ%';

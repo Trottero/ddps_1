@@ -1,0 +1,8 @@
+dfs -mv /user/hive/warehouse/rankings/* /data/rankings;
+DROP TABLE rankings_select;
+DROP TABLE rankings;
+CREATE TABLE rankings (pageRank INT, pageURL STRING, avgDuration INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE;
+LOAD DATA INPATH '/data/rankings/*' INTO TABLE rankings;
+CREATE TABLE rankings_select ( pageRank INT, pageURL STRING );
+INSERT OVERWRITE TABLE rankings_select SELECT pageRank, pageURL FROM rankings WHERE pageRank > 10;
+

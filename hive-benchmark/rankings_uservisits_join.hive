@@ -1,0 +1,12 @@
+dfs -mv /user/hive/warehouse/uservisits/* /data/uservisits;
+dfs -mv /user/hive/warehouse/rankings/* /data/rankings;
+DROP TABLE rankings;
+DROP TABLE uservisits;
+DROP TABLE rankings_uservisits_join;
+set mapred.reduce.tasks=60;
+CREATE TABLE rankings (pageRank INT, pageURL STRING, avgDuration INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE;
+LOAD DATA INPATH '/data/rankings/*' INTO TABLE rankings;
+CREATE TABLE uservisits (sourceIP STRING,destURL STRING,visitDate STRING,adRevenue DOUBLE,userAgent STRING,countryCode STRING,languageCode STRING,searchWord STRING,duration INT ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE;
+LOAD DATA INPATH '/data/uservisits/*' INTO TABLE uservisits;
+CREATE TABLE rankings_uservisits_join ( sourceIP STRING, avgPageRank DOUBLE, totalRevenue DOUBLE);
+INSERT OVERWRITE TABLE rankings_uservisits_join SELECT sourceIP, AVG(pageRank), SUM(adRevenue) FROM rankings R JOIN (SELECT * FROM uservisits UV WHERE UV.visitDate > '1999-01-01' AND UV.visitDate < '2000-01-01') NUV ON (R.pageURL = NUV.destURL) GROUP BY sourceIP;
