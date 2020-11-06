@@ -6,11 +6,14 @@
 # Make working dir
 mkdir tmp-analytics
 
+# rm
+rm -r results
+
 # Make result dir
 mkdir results
 
 # First find all of the sorting jobs
-mapred job -list all | grep "OVERWRITE TAB" | awk '{print $1}' >> tmp-analytics/jobs_to_analyze
+mapred job -list all | grep "OVERWRITE TAB" | grep "SUCCEEDED" | awk '{print $1}' >> tmp-analytics/jobs_to_analyze
 
 # Then for every job, grab some statistics
 cat tmp-analytics/jobs_to_analyze | while read job;
@@ -33,7 +36,13 @@ do
     then
         data_local_tasks="|0"
     fi
-    echo $data_local_tasks $rack_local_tasks $launched_map_tasks $job_runtime >> results/job_result
+    if [ "$launched_map_tasks" = "" ];
+    then
+        launched_map_tasks="|0"
+    fi
+
+    delim="|"
+    echo $data_local_tasks $rack_local_tasks $launched_map_tasks $delim $job_runtime >> results/job_result
 done
 
 # Remove old working dir
