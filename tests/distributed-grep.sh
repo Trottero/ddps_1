@@ -1,7 +1,5 @@
 # Simple distributed grep action which can be executed on the cluster
 
-HADOOP_PATH=~/ddps_1/hadoop-3.3.0
-
 # Copy files over to the nodes
 $HADOOP_PATH/bin/hdfs dfs -mkdir input
 $HADOOP_PATH/bin/hdfs dfs -put $HADOOP_PATH/etc/hadoop/*.xml input
@@ -11,7 +9,7 @@ $HADOOP_PATH/bin/hdfs dfs -rm -r output
 rm -r ~/ddps_1/output
 
 # Run job
-$HADOOP_PATH/bin/yarn jar $HADOOP_PATH/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.0.jar grep input output 'dfs[a-z.]+'
+$HADOOP_PATH/bin/yarn jar $HADOOP_PATH/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar grep input output 'dfs[a-z.]+'
 
 
 # Copy output files back over

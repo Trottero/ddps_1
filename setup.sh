@@ -5,6 +5,12 @@
 chmod a+x environmentvar.sh
 . ./environmentvar.sh
 
+# Give permissions to hive executable
+chmod a+x $HIVE_HOME/bin/hive
+chmod a+x $HADOOP_HOME/bin/mapred
+chmod a+x $HADOOP_HOME/bin/yarn
+chmod a+x $HADOOP_HOME/bin/hdfs
+
 # Remove logs from previous setup
 rm -R $HADOOP_HOME/logs
 

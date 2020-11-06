@@ -12,6 +12,7 @@ chmod a+x ~/ddps_1/setup.sh
 chmod a+x ~/ddps_1/start.sh
 chmod a+x ~/ddps_1/stop.sh
 chmod a+x ~/ddps_1/tests/distributed-grep.sh
+chmod a+x ~/ddps_1/hdfs-folders.sh
 
 # Load environment variables
 . ~/ddps_1/environmentvar.sh
@@ -27,12 +28,20 @@ mkdir /home/$USER_TO_USE/ddps_1/hadoopstorage/namenodedir
 rm -r /tmp/hadoop-$USER_TO_USE
 
 # Download hadoop
-curl -o /home/$USER_TO_USE/ddps_1/hadoop.tar.gz https://apache.mirror.wearetriple.com/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz
+curl -o ~/ddps_1/hadoop.tar.gz https://ftp.nluug.nl/internet/apache/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz
 
 echo "Unpacking hadoop"
 # Unpack hadoop
-mkdir ./ddps_1/hadoop-3.3.0
-tar -xzf ./ddps_1/hadoop.tar.gz -C ./ddps_1
+mkdir ~/ddps_1/hadoop-3.1.3
+tar -xzf ~/ddps_1/hadoop.tar.gz -C ~/ddps_1
+
+echo "Downloading Hive"
+curl -o ~/ddps_1/hive.tar.gz https://ftp.nluug.nl/internet/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
+
+echo "Unpacking Hive"
+# Unpack Hive
+mkdir ~/ddps_1/apache-hive-3.1.2-bin
+tar -xzf ~/ddps_1/hive.tar.gz -C ~/ddps_1
 
 # Reload configs
 . ~/ddps_1/reload-configs.sh
