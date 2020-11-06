@@ -38,6 +38,6 @@
     </property>
     <property>
       <name>yarn.resourcemanager.hostname</name>
-      <value>node107</value>
+      <value>$NAMENODE_HOSTNAME</value>
     </property>
 </configuration>
