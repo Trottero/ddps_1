@@ -12,7 +12,19 @@
 
 # First install this node
 chmod a+x ./ddps_1/install.sh
-. ./ddps_1/install.sh
+. ./ddps_1/install.sh &
+
+# Download hive on the namenode
+echo "Downloading Hive"
+curl -o ~/ddps_1/hive.tar.gz https://ftp.nluug.nl/internet/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz &
+
+wait
+
+echo "Unpacking Hive"
+# Unpack Hive
+mkdir ~/ddps_1/apache-hive-3.1.2-bin
+tar -xzf ~/ddps_1/hive.tar.gz -C ~/ddps_1
+
 
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.

@@ -29,12 +29,7 @@ rm -r /tmp/hadoop-$USER_TO_USE
 
 echo "Downloading Hadoop"
 # Download hadoop
-curl -o ~/ddps_1/hadoop.tar.gz https://ftp.nluug.nl/internet/apache/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz &
-
-echo "Downloading Hive"
-curl -o ~/ddps_1/hive.tar.gz https://ftp.nluug.nl/internet/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz &
-
-wait
+curl -o ~/ddps_1/hadoop.tar.gz https://ftp.nluug.nl/internet/apache/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz
 
 echo "Unpacking hadoop"
 # Unpack hadoop
@@ -42,10 +37,6 @@ mkdir ~/ddps_1/hadoop-3.3.0
 tar -xzf ~/ddps_1/hadoop.tar.gz -C ~/ddps_1
 
 
-echo "Unpacking Hive"
-# Unpack Hive
-mkdir ~/ddps_1/apache-hive-3.1.2-bin
-tar -xzf ~/ddps_1/hive.tar.gz -C ~/ddps_1
 
 # Reload configs
 . ~/ddps_1/reload-configs.sh
