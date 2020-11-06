@@ -9,5 +9,6 @@ do
     # Update git repos
     echo "" | ssh $worker "cd ~/ddps_1 && git pull"
     # Reload local configs
+    echo "" | ssh $worker chmod a+x ~/ddps_1/reload-configs-local.sh
     echo "" | ssh $worker ~/ddps_1/reload-configs-local.sh
 done
