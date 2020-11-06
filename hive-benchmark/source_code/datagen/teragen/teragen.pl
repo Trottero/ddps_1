@@ -29,7 +29,7 @@ my $CUR_HOSTNAME = `hostname -s`;
 chomp($CUR_HOSTNAME);
 
 # (128MB) true size  1.369.568
-my $NUM_OF_RECORDS_50GB    = 13158600;
+my $NUM_OF_RECORDS_50GB    = 1315860;
 my $BASE_OUTPUT_DIR   = "/data";
 my $PATTERN_STRING    = "XYZ";
 my $PATTERN_FREQUENCY = 108299;
@@ -40,10 +40,11 @@ my %files = ( "5GB" => 10,
 );
 
 foreach my $target (keys %files) {
-   my $output_dir = $BASE_OUTPUT_DIR."/grep";
+   my $jobid = $ARGV[1];
+   my $output_dir = $BASE_OUTPUT_DIR."/grep-$jobid";
    my $num_of_maps = $files{$target};
    system("$HADOOP_COMMAND fs -rmr $output_dir");
-   my $num_of_records = $NUM_OF_RECORDS_50GB;
+   my $num_of_records = $NUM_OF_RECORDS_50GB * $ARGV[0];
    print "Generating $num_of_maps files in '$output_dir'\n";
    
    ##
@@ -53,7 +54,7 @@ foreach my $target (keys %files) {
                 $output_dir,
                 $PATTERN_STRING,
                 $PATTERN_FREQUENCY,
-                $num_of_maps );
+                $ARGV[0] );
    my $cmd = "$HADOOP_COMMAND jar ~/ddps_1/hive-benchmark/source_code/datagen/teragen/$TERAGEN_JAR ".join(" ", @args);
    print "$cmd\n";
    system($cmd) == 0 || die("ERROR: $!");
