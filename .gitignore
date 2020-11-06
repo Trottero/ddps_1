@@ -6,3 +6,5 @@ hadoop.tar.gz
 results/
 apache-hive-3.1.2-bin/
 *.tar.gz
+derby.log
+metastore_db/
