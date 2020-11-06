@@ -8,11 +8,11 @@
 
 # Load environment variables
 chmod a+x ./ddps_1/environmentvar.sh
-. ./ddps_1/environmentvar.sh
+. ~/ddps_1/environmentvar.sh
 
 # First install this node
 chmod a+x ./ddps_1/install.sh
-. ./ddps_1/install.sh &
+. ~/ddps_1/install.sh &
 
 # Download hive on the namenode
 echo "Downloading Hive"
