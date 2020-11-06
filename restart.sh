@@ -1,6 +1,8 @@
 # Restart.sh
 # Cold restarts the cluster, also reinitializes all of the folders.
 
+. ./environmentvar.sh
+
 # First stop the cluster
 . ./stop.sh
 
