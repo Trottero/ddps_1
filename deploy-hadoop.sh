@@ -29,7 +29,7 @@ tar -xzf ~/ddps_1/hive.tar.gz -C ~/ddps_1
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.
 # DO NOT: add the namenode to the workers list.
-cat /home/$USER_TO_USE/ddps_1/hadoopconfig/workers | while read worker;
+cat ~/ddps_1/hadoopconfig/workers | while read worker;
 do
   if [[ "$worker" == 'localhost' ]]; then
     echo "Skipping localhost initialization"
@@ -38,14 +38,14 @@ do
   
   echo "$worker"
   # Remove all older folders which might still be on there.
-  echo "" | ssh $worker rm -r /home/$USER_TO_USE/ddps_1
+  echo "" | ssh $worker rm -r ~/ddps_1
 
   # Clone the new repo in there.
   echo "Cloning repo"
-  echo "" | ssh $worker git clone https://github.com/Trottero/ddps_1 /home/$USER_TO_USE/ddps_1
+  echo "" | ssh $worker git clone https://github.com/Trottero/ddps_1 ~/ddps_1
   echo "Setting permissions and downloading hadoop"
-  echo "" | ssh $worker chmod a+x /home/$USER_TO_USE/ddps_1/install.sh
-  echo "" | ssh $worker /home/$USER_TO_USE/ddps_1/install.sh &
+  echo "" | ssh $worker chmod a+x ~/ddps_1/install.sh
+  echo "" | ssh $worker ~/ddps_1/install.sh &
   echo "Finished configuring node $worker"
 done
 
