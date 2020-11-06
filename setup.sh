@@ -5,6 +5,8 @@
 chmod a+x environmentvar.sh
 . ./environmentvar.sh
 
+. ~/ddps_1/reload-configs.sh
+
 # Give permissions to hive executable
 chmod a+x $HIVE_HOME/bin/hive
 chmod a+x $HADOOP_HOME/bin/mapred
