@@ -4,4 +4,5 @@ DROP TABLE grep_select;
 CREATE TABLE grep ( key STRING, field STRING ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;
 LOAD DATA INPATH '/data/grep/*' INTO TABLE grep;
 CREATE TABLE grep_select ( key STRING, field STRING );
+SET mapreduce.input.fileinputformat.split.maxsize = 128000000
 INSERT OVERWRITE TABLE grep_select SELECT * FROM grep WHERE field LIKE '%XYZ%';
