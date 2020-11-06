@@ -18,7 +18,7 @@
 <configuration>
     <property>
         <name>dfs.replication</name>
-        <value>1</value>
+        <value>3</value>
     </property>
     <!-- <property>
         <name>dfs.namenode.name.dir</name>
@@ -30,7 +30,7 @@
     </property> -->
       <property>
         <name>dfs.hosts</name>
-        <value>/home/mewyu/ddps_1/hadoopconfig/workers</value>
+        <value>/home/ddps2018/ddps_1/hadoopconfig/workers</value>
     </property>
     <property>
       <name>mapred.max.split.size</name>
