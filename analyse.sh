@@ -10,17 +10,19 @@ mkdir tmp-analytics
 mkdir results
 
 # First find all of the sorting jobs
-mapred job -list all | grep grep-search | awk '{print $1}' >> tmp-analytics/jobs_to_analyze
+mapred job -list all | grep "OVERWRITE TAB" | awk '{print $1}' >> tmp-analytics/jobs_to_analyze
 
 # Then for every job, grab some statistics
 cat tmp-analytics/jobs_to_analyze | while read job;
 do
     # Analyze job history and grab amount of local tasks from it.
-    data_local_tasks=$(mapred job -history $job | grep "Data-local map tasks" | awk '{print $8}')
-    rack_local_tasks=$(mapred job -history $job | grep "Rack-local map tasks" | awk '{print $8}')
+    jobhistory=$(mapred job -history "$job")
 
-    launched_map_tasks=$(mapred job -history $job | grep "Launched map tasks" | awk '{print $8}')
-    job_runtime=$(mapred job -history $job | grep "Finished At:" | awk '{print $5}')
+    data_local_tasks=$(echo "$jobhistory" | grep "Data-local map tasks" | awk '{print $8}')
+    rack_local_tasks=$(echo "$jobhistory" | grep "Rack-local map tasks" | awk '{print $8}')
+
+    launched_map_tasks=$(echo "$jobhistory" | grep "Launched map tasks" | awk '{print $8}')
+    job_runtime=$(echo "$jobhistory" | grep "Finished At:" | awk '{print $5}')
     
     # Check for no locality
     if [ "$rack_local_tasks" = "" ];
