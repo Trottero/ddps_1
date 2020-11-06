@@ -32,4 +32,12 @@
         <name>dfs.hosts</name>
         <value>/home/mewyu/ddps_1/hadoopconfig/workers</value>
     </property>
+    <property>
+      <name>mapred.max.split.size</name>
+      <value>134217728</value>
+  </property>    
+  <property>
+    <name>mapred.min.split.size</name>
+    <value>134217728</value>
+</property>
 </configuration>
