@@ -27,8 +27,9 @@ use warnings;
 
 my $CUR_HOSTNAME = `hostname -s`;
 chomp($CUR_HOSTNAME);
-                           
-my $NUM_OF_RECORDS_50GB    = 100000000;
+
+# (128MB) true size  1.369.568
+my $NUM_OF_RECORDS_50GB    = 13158600;
 my $BASE_OUTPUT_DIR   = "/data";
 my $PATTERN_STRING    = "XYZ";
 my $PATTERN_FREQUENCY = 108299;
@@ -53,7 +54,7 @@ foreach my $target (keys %files) {
                 $PATTERN_STRING,
                 $PATTERN_FREQUENCY,
                 $num_of_maps );
-   my $cmd = "$HADOOP_COMMAND jar $TERAGEN_JAR ".join(" ", @args);
+   my $cmd = "$HADOOP_COMMAND jar ~/ddps_1/hive-benchmark/source_code/datagen/teragen/$TERAGEN_JAR ".join(" ", @args);
    print "$cmd\n";
    system($cmd) == 0 || die("ERROR: $!");
 } # FOR
