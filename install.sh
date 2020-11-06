@@ -13,6 +13,7 @@ chmod a+x ~/ddps_1/start.sh
 chmod a+x ~/ddps_1/stop.sh
 chmod a+x ~/ddps_1/tests/distributed-grep.sh
 chmod a+x ~/ddps_1/hdfs-folders.sh
+chmod a+x ~/ddps_1/reload-configs-local.sh
 
 # Load environment variables
 . ~/ddps_1/environmentvar.sh
@@ -39,7 +40,7 @@ tar -xzf ~/ddps_1/hadoop.tar.gz -C ~/ddps_1
 
 
 # Reload configs
-. ~/ddps_1/reload-configs.sh
+. ~/ddps_1/reload-configs-local.sh
 
 echo "Copying over guava.jar to hive"
 rm $HIVE_HOME/lib/guava-19.0.jar
