@@ -6,7 +6,7 @@
 cat ~/ddps_1/hadoopconfig/workers | while read worker;
 do
     # Update git repos
-    echo "" | ssh $worker (cd ~/ddps_1 && git pull)
+    echo "" | ssh $worker "cd ~/ddps_1 && git pull"
     # Reload local configs
     echo "" | ssh $worker ~/ddps_1/reload-configs-local.sh
 done
