@@ -19,7 +19,7 @@
 <configuration>
   <property>
     <name>mapreduce.jobhistory.address</name>
-    <value>node062:10020</value>
+    <value>node063:10020</value>
   </property>
   <property>
     <name>mapreduce.framework.name</name>

@@ -1,6 +1,6 @@
 # script variables
 export USER_TO_USE=ddps2018
-export NAMENODE_HOSTNAME=node054
+export NAMENODE_HOSTNAME=node063
 
 # setup environment variables
 export HDFS_NAMENODE_USER=$USER_TO_USE
