@@ -6,8 +6,7 @@ chmod a+x ./ddps_1/environmentvar.sh
 . ~/ddps_1/environmentvar.sh
 
 # rm old folders
-rm -r /local/$USER_TO_USE/*
-rm -r /tmp/hadoop-$USER_TO_USE
+rm -r /local/$USER_TO_USE/
 
 # First install hive and hadoop on this node
 chmod a+x ./ddps_1/install.sh
@@ -17,6 +16,9 @@ chmod a+x ./ddps_1/install.sh
 mkdir /local/$USER_TO_USE/
 mkdir /local/$USER_TO_USE/hadoop-3.3.0/
 mkdir /local/$USER_TO_USE/apache-hive-3.1.2-bin/
+mkdir /local/$USER_TO_USE/hadoopstorage/
+mkdir /local/$USER_TO_USE/hadoopstorage/namenode/
+mkdir /local/$USER_TO_USE/hadoopstorage/datanode/
 
 # Move hadoop and hive installs for host
 cp -a ~/ddps_1/hadoop-3.3.0/* /local/$USER_TO_USE/hadoop-3.3.0/
