@@ -4,8 +4,6 @@
 # Allow execution of all of the scripting files
 chmod a+x ~/ddps_1/environmentvar.sh
 chmod a+x ~/ddps_1/add-to-path.sh
-chmod a+x ~/ddps_1/joblog.sh
-chmod a+x ~/ddps_1/jobs.sh
 chmod a+x ~/ddps_1/reload-configs.sh
 chmod a+x ~/ddps_1/report.sh
 chmod a+x ~/ddps_1/setup.sh
