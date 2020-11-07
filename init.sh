@@ -2,6 +2,10 @@
 chmod a+x ~/ddps_1/environmentvar.sh
 . ~/ddps_1/environmentvar.sh
 
+
+# rm old folders
+rm -r /local/$USER_TO_USE/
+
 # Make new folders
 mkdir /local/$USER_TO_USE/
 mkdir /local/$USER_TO_USE/hadoop-3.3.0/

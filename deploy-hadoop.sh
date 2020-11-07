@@ -5,10 +5,7 @@
 chmod a+x ~/ddps_1/environmentvar.sh
 . ~/ddps_1/environmentvar.sh
 
-# rm old folders
-rm -r /local/$USER_TO_USE/
-
-# First install hive and hadoop on this node
+# First install hive and hadoop on this node in the home direcotry
 chmod a+x ~/ddps_1/install-hadoop.sh
 . ~/ddps_1/install-hadoop.sh
 
