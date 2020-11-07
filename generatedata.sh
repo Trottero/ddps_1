@@ -3,7 +3,8 @@ jobid=0
 
 
 # JOBS=(2)
-JOBS=(2 2 2 2 2 2 2 2 2 2 2 2 2 2 10 10 10 10 10 10 10 10 20 20 20 20 20 20 40 40 40 40 40 40 80 80 80 80 160 160 160 960 960 960 960)
+# JOBS=(2 2 2 2 2 2 2 2 2 2 2 2 2 2 10 10 10 10 10 10 10 10 20 20 20 20 20 20 40 40 40 40 40 40 80 80 80 80 160 160 160 960 960 960 960)
+JOBS=(2 2 10 10 20 40)
 for i in ${JOBS[@]}
 do
     if [[ "$1" == '' ]]; then
@@ -15,8 +16,7 @@ done
 
 JOB_ORDER=( $(echo "${JOB_ORDER[@]}" | sed -r 's/(.[^ ]* )/ \1 /g' | tr " " "\n" | shuf | tr -d " ") )
 
-chmod a+x ~/ddps_1/executequery.sh
-
+cd /local/$USER_TO_USE 
 for i in ${JOB_ORDER[@]}
 do
     echo "$i"
@@ -27,3 +27,5 @@ do
     $HIVE_HOME/bin/hive -e "INSERT OVERWRITE TABLE grep_${i}_select SELECT * FROM grep_${i} WHERE field LIKE '%XYZ%';" &
     sleep 14
 done
+wait
+cd ~

@@ -1,1 +1,0 @@
-mapred job -history all $1

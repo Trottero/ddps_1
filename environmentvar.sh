@@ -17,8 +17,8 @@ export YARN_HOME=$HADOOP_HOME
 # export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 # export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 
-export HADOOP_HOME=/local/$USER_TO_USE/ddps_1/hadoop-3.3.0
-export HIVE_HOME=/local/$USER_TO_USE/ddps_1/apache-hive-3.1.2-bin
+export HADOOP_HOME=/local/$USER_TO_USE/hadoop-3.3.0
+export HIVE_HOME=/local/$USER_TO_USE/apache-hive-3.1.2-bin
 
 export HADOOP_PATH=$HADOOP_HOME
 export HADOOP_YARN_HOME=$HADOOP_HOME

@@ -1,1 +1,0 @@
-mapred job -list all

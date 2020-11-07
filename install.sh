@@ -20,12 +20,10 @@ chmod a+x ~/ddps_1/hdfs-folders.sh
 # Add hadoop / yarn / mapred to path 
 . ~/ddps_1/add-to-path.sh
 
-mkdir /home/$USER_TO_USE/ddps_1/hadoopstorage
-mkdir /home/$USER_TO_USE/ddps_1/hadoopstorage/data
-mkdir /home/$USER_TO_USE/ddps_1/hadoopstorage/namenodedir
+# Remove old install dirs.
+rm -r ~/ddps_1/hadoop-3.3.0
+rm -r ~/ddps_1/apache-hive-3.1.2-bin
 
-# Remove old data dir.
-rm -r /tmp/hadoop-$USER_TO_USE
 
 echo "Downloading Hadoop"
 # Download hadoop
@@ -36,7 +34,21 @@ echo "Unpacking hadoop"
 mkdir ~/ddps_1/hadoop-3.3.0
 tar -xzf ~/ddps_1/hadoop.tar.gz -C ~/ddps_1
 
-# Reload configs
-. ~/ddps_1/reload-configs.sh
+# Download hive on the namenode
+echo "Downloading Hive"
+curl -o ~/ddps_1/hive.tar.gz https://ftp.nluug.nl/internet/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
+
+echo "Unpacking Hive"
+# Unpack Hive
+mkdir ~/ddps_1/apache-hive-3.1.2-bin
+tar -xzf ~/ddps_1/hive.tar.gz -C ~/ddps_1
+
+echo "Copying over guava.jar to hive"
+rm ~/ddps_1/apache-hive-3.1.2-bin/lib/guava-19.0.jar
+cp  ~/ddps_1/hadoop-3.3.0/share/hadoop/common/lib/guava-27.0-jre.jar ~/ddps_1/apache-hive-3.1.2-bin/lib/
+
+# Clean up tars which we dont need anymore
+rm ~/ddps_1/hadoop.tar.gz
+rm ~/ddps_1/hive.tar.gz
 
 echo "Done installing!"
