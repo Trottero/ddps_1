@@ -42,8 +42,4 @@ tar -xzf ~/ddps_1/hadoop.tar.gz -C ~/ddps_1
 # Reload configs
 . ~/ddps_1/reload-configs-local.sh
 
-echo "Copying over guava.jar to hive"
-rm $HIVE_HOME/lib/guava-19.0.jar
-cp $HADOOP_HOME/share/hadoop/common/lib/guava-27.0-jre.jar $HIVE_HOME/lib/
-
 echo "Done installing!"

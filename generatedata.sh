@@ -6,7 +6,7 @@ jobid=0
 JOBS=(2 2 2 2 2 2 2 2 2 2 2 2 2 2 10 10 10 10 10 10 10 10 20 20 20 20 20 20 40 40 40 40 40 40 80 80 80 80 160 160 160 960 960 960 960)
 for i in ${JOBS[@]}
 do
-    if [[$1 == '']];
+    if [[ "$1" == '']];
     then
         perl ~/ddps_1/hive-benchmark/source_code/datagen/teragen/teragen.pl $i $jobid
     fi
