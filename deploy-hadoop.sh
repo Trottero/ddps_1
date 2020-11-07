@@ -30,6 +30,9 @@ do
   echo "" | ssh $worker mkdir /local/$USER_TO_USE/
   echo "" | ssh $worker mkdir /local/$USER_TO_USE/hadoop-3.3.0/
   echo "" | ssh $worker mkdir /local/$USER_TO_USE/apache-hive-3.1.2-bin/
+  echo "" | ssh $worker mkdir /local/$USER_TO_USE/hadoopstorage/
+  echo "" | ssh $worker mkdir /local/$USER_TO_USE/hadoopstorage/namenode/
+  echo "" | ssh $worker mkdir /local/$USER_TO_USE/hadoopstorage/datanode/
   echo "" | ssh $worker cp -a ~/ddps_1/hadoop-3.3.0/* /local/$USER_TO_USE/hadoop-3.3.0/
   echo "" | ssh $worker cp -a ~/ddps_1/apache-hive-3.1.2-bin/* /local/$USER_TO_USE/apache-hive-3.1.2-bin/
 done
