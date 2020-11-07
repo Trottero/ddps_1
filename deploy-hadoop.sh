@@ -25,30 +25,18 @@ tar -xzf ~/ddps_1/hive.tar.gz -C ~/ddps_1
 
 
 echo "Copying over guava.jar to hive"
-rm $HIVE_HOME/lib/guava-19.0.jar
-cp $HADOOP_HOME/share/hadoop/common/lib/guava-27.0-jre.jar $HIVE_HOME/lib/
+rm ~/ddps_1/apache-hive-3.1.2-bin/lib/guava-19.0.jar
+cp  ~/ddps_1/hadoop-3.3.0/share/hadoop/common/lib/guava-27.0-jre.jar ~/ddps_1/apache-hive-3.1.2-bin/lib/
 
-$HIVE_HOME/bin/schematool -dbType derby -initSchema
 
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.
 # DO NOT: add the namenode to the workers list.
 cat ~/ddps_1/hadoopconfig/workers | while read worker;
 do
-  if [[ "$worker" == 'localhost' ]]; then
-    echo "Skipping localhost initialization"
-    continue
-  fi
-  
-  echo "$worker"
-  # Remove all older folders which might still be on there.
-  echo "" | ssh $worker rm -r ~/ddps_1
-
-  # Clone the new repo in there.
-  echo "Cloning repo"
-  echo "" | ssh $worker git clone https://github.com/Trottero/ddps_1 ~/ddps_1
-  echo "Setting permissions and downloading hadoop"
-  echo "" | ssh $worker chmod a+x ~/ddps_1/install.sh
-  echo "" | ssh $worker ~/ddps_1/install.sh 
-  echo "Finished configuring node $worker"
+  echo "" | ssh $worker cp ~/ddps_1/* /local/$USER_TO_USE
 done
+
+cd /local/$USER_TO_USE
+$HIVE_HOME/bin/schematool -dbType derby -initSchema
+cd ~

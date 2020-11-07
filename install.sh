@@ -13,7 +13,6 @@ chmod a+x ~/ddps_1/start.sh
 chmod a+x ~/ddps_1/stop.sh
 chmod a+x ~/ddps_1/tests/distributed-grep.sh
 chmod a+x ~/ddps_1/hdfs-folders.sh
-chmod a+x ~/ddps_1/reload-configs-local.sh
 
 # Load environment variables
 . ~/ddps_1/environmentvar.sh
@@ -37,9 +36,7 @@ echo "Unpacking hadoop"
 mkdir ~/ddps_1/hadoop-3.3.0
 tar -xzf ~/ddps_1/hadoop.tar.gz -C ~/ddps_1
 
-
-
 # Reload configs
-. ~/ddps_1/reload-configs-local.sh
+. ~/ddps_1/reload-configs.sh
 
 echo "Done installing!"

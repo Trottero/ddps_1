@@ -1,14 +1,11 @@
-# reload-configs.sh
-# reloads configs on host aswell as all workers
+echo "Reloading configs"
+# Apply patch to hadoop config files
+
+# Update configs from the git
+cd ~/ddps_1
+git pull
+cd ~
+
 . ~/ddps_1/environmentvar.sh
 
-. ~/ddps_1/reload-configs-local.sh
-# also apply it to all of the worker nodes
-cat ~/ddps_1/hadoopconfig/workers | while read worker;
-do
-    # Update git repos
-    echo "" | ssh $worker "cd ~/ddps_1; git pull"
-    # Reload local configs
-    echo "" | ssh $worker chmod a+x ~/ddps_1/reload-configs-local.sh
-    echo "" | ssh $worker ~/ddps_1/reload-configs-local.sh
-done
+cp ~/ddps_1/hadoopconfig/* $HADOOP_HOME/etc/hadoop
