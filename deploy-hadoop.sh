@@ -9,32 +9,15 @@ chmod a+x ~/ddps_1/environmentvar.sh
 rm -r /local/$USER_TO_USE/
 
 # First install hive and hadoop on this node
-chmod a+x ~/ddps_1/install.sh
-. ~/ddps_1/install.sh
+chmod a+x ~/ddps_1/install-hadoop.sh
+. ~/ddps_1/install-hadoop.sh
 
-# Make new folders
-mkdir /local/$USER_TO_USE/
-mkdir /local/$USER_TO_USE/hadoop-3.3.0/
-mkdir /local/$USER_TO_USE/apache-hive-3.1.2-bin/
-mkdir /local/$USER_TO_USE/hadoopstorage/
-mkdir /local/$USER_TO_USE/hadoopstorage/namenode/
-mkdir /local/$USER_TO_USE/hadoopstorage/datanode/
+. ~/ddps_1/init.sh
 
-# Move hadoop and hive installs for host
-cp -a ~/ddps_1/hadoop-3.3.0/* /local/$USER_TO_USE/hadoop-3.3.0/
-cp -a ~/ddps_1/apache-hive-3.1.2-bin/* /local/$USER_TO_USE/apache-hive-3.1.2-bin/
-
-# For every worker in the list, copy over the hadoop and hive binaries
+# For every worker in the list, copy over the hadoop and hive binaries to /local/user/
 cat ~/ddps_1/hadoopconfig/workers | while read worker;
 do
-  echo "" | ssh $worker mkdir /local/$USER_TO_USE/
-  echo "" | ssh $worker mkdir /local/$USER_TO_USE/hadoop-3.3.0/
-  echo "" | ssh $worker mkdir /local/$USER_TO_USE/apache-hive-3.1.2-bin/
-  echo "" | ssh $worker mkdir /local/$USER_TO_USE/hadoopstorage/
-  echo "" | ssh $worker mkdir /local/$USER_TO_USE/hadoopstorage/namenode/
-  echo "" | ssh $worker mkdir /local/$USER_TO_USE/hadoopstorage/datanode/
-  echo "" | ssh $worker cp -a ~/ddps_1/hadoop-3.3.0/* /local/$USER_TO_USE/hadoop-3.3.0/
-  echo "" | ssh $worker cp -a ~/ddps_1/apache-hive-3.1.2-bin/* /local/$USER_TO_USE/apache-hive-3.1.2-bin/
+  echo "" | ssh $worker ~/ddps_1/init.sh
 done
 
 # Overwrite configs at every node
