@@ -38,6 +38,6 @@
   </property>    
   <property>
     <name>mapred.min.split.size</name>
-    <value>134217728</value>
+    <value>134217727</value>
 </property>
 </configuration>

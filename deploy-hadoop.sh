@@ -50,5 +50,3 @@ do
   echo "" | ssh $worker ~/ddps_1/install.sh 
   echo "Finished configuring node $worker"
 done
-
-wait
