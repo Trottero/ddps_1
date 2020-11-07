@@ -7,5 +7,5 @@
 cat ~/ddps_1/hadoopconfig/workers | while read worker;
 do
     # Run update script on every remote
-    cat ~/ddps_1/reload-configs-local.sh | ssh $worker
+    ssh $worker < cat ~/ddps_1/reload-configs-local.sh 
 done
