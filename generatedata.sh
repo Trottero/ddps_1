@@ -16,6 +16,7 @@ done
 
 JOB_ORDER=( $(echo "${JOB_ORDER[@]}" | sed -r 's/(.[^ ]* )/ \1 /g' | tr " " "\n" | shuf | tr -d " ") )
 
+echo  ${JOB_ORDER[@]}
 cd /local/$USER_TO_USE 
 for i in ${JOB_ORDER[@]}
 do
@@ -24,7 +25,7 @@ do
     $HIVE_HOME/bin/hive -e "LOAD DATA INPATH '/data/grep-${i}/*' INTO TABLE grep_${i};"
     $HIVE_HOME/bin/hive -e "CREATE TABLE grep_${i}_select ( key STRING, field STRING );"
     $HIVE_HOME/bin/hive -e "SET mapreduce.input.fileinputformat.split.maxsize = 128000000;"
-    $HIVE_HOME/bin/hive -e "INSERT OVERWRITE TABLE grep_${i}_select SELECT * FROM grep_${i} WHERE field LIKE '%XYZ%';" &
+    $HIVE_HOME/bin/hive -e "INSERT OVERWRITE TABLE grep_${i}_select SELECT * FROM grep_${i} WHERE field LIKE '%XYZ%';"
     sleep 14
 done
 wait
