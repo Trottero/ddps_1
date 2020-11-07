@@ -25,6 +25,7 @@ cp ~/ddps_1/apache-hive-3.1.2-bin/* /local/$USER_TO_USE/apache-hive-3.1.2-bin/
 # For every worker in the list, copy over the hadoop and hive binaries
 cat ~/ddps_1/hadoopconfig/workers | while read worker;
 do
+  echo "" | ssh $worker mkdir /local/$USER_TO_USE/
   echo "" | ssh $worker mkdir /local/$USER_TO_USE/hadoop-3.3.0/
   echo "" | ssh $worker mkdir /local/$USER_TO_USE/apache-hive-3.1.2-bin/
   echo "" | ssh $worker cp ~/ddps_1/hadoop-3.3.0/* /local/$USER_TO_USE/hadoop-3.3.0/
