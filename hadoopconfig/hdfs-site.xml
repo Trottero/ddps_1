@@ -22,11 +22,11 @@
     </property>
     <property>
         <name>dfs.namenode.name.dir</name>
-        <value>/local/$USER_TO_USE/hadoopstorage/namenode</value>
+        <value>/local/ddps2018/hadoopstorage/namenode</value>
     </property>
     <property>
         <name>dfs.datanode.data.dir</name>
-        <value>/local/$USER_TO_USE/hadoopstorage/datanode</value>
+        <value>/local/ddps2018/hadoopstorage/datanode</value>
     </property>
       <property>
         <name>dfs.hosts</name>
