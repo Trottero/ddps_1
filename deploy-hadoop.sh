@@ -14,6 +14,7 @@ chmod a+x ./ddps_1/install.sh
 . ~/ddps_1/install.sh
 
 # Make new folders
+mkdir /local/$USER_TO_USE/
 mkdir /local/$USER_TO_USE/hadoop-3.3.0/
 mkdir /local/$USER_TO_USE/apache-hive-3.1.2-bin/
 
