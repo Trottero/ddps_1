@@ -2,14 +2,14 @@
 # To be run on the main node, initializes all worker nodes with the proper hadoop binaries
 
 # Load environment variables
-chmod a+x ./ddps_1/environmentvar.sh
+chmod a+x ~/ddps_1/environmentvar.sh
 . ~/ddps_1/environmentvar.sh
 
 # rm old folders
 rm -r /local/$USER_TO_USE/
 
 # First install hive and hadoop on this node
-chmod a+x ./ddps_1/install.sh
+chmod a+x ~/ddps_1/install.sh
 . ~/ddps_1/install.sh
 
 # Make new folders
