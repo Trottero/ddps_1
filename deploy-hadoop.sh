@@ -12,13 +12,11 @@ chmod a+x ./ddps_1/environmentvar.sh
 
 # First install this node
 chmod a+x ./ddps_1/install.sh
-. ~/ddps_1/install.sh &
+. ~/ddps_1/install.sh
 
 # Download hive on the namenode
 echo "Downloading Hive"
-curl -o ~/ddps_1/hive.tar.gz https://ftp.nluug.nl/internet/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz &
-
-wait
+curl -o ~/ddps_1/hive.tar.gz https://ftp.nluug.nl/internet/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
 
 echo "Unpacking Hive"
 # Unpack Hive
