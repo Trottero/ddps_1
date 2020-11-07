@@ -28,6 +28,8 @@ echo "Copying over guava.jar to hive"
 rm $HIVE_HOME/lib/guava-19.0.jar
 cp $HADOOP_HOME/share/hadoop/common/lib/guava-27.0-jre.jar $HIVE_HOME/lib/
 
+$HIVE_HOME/bin/schematool -dbType derby -initSchema
+
 # For every worker in the list, have them download the git repo.
 # And execute install.sh aswell.
 # DO NOT: add the namenode to the workers list.
