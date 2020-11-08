@@ -21,12 +21,12 @@ cd /local/$USER_TO_USE
 for i in ${JOB_ORDER[@]}
 do
     echo "$i"
-    $HIVE_HOME/bin/hive -e "CREATE TABLE grep_${i} ( key STRING, field STRING ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;"
-    $HIVE_HOME/bin/hive -e "LOAD DATA INPATH '/data/grep-${i}/*' INTO TABLE grep_${i};"
-    $HIVE_HOME/bin/hive -e "CREATE TABLE grep_${i}_select ( key STRING, field STRING );"
-    $HIVE_HOME/bin/hive -e "SET mapreduce.input.fileinputformat.split.maxsize = 128000000;"
-    $HIVE_HOME/bin/hive -e "INSERT OVERWRITE TABLE grep_${i}_select SELECT * FROM grep_${i} WHERE field LIKE '%XYZ%';"
-    sleep 14
+    # $HIVE_HOME/bin/hive -e "CREATE TABLE grep_${i} ( key STRING, field STRING ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;"
+    # $HIVE_HOME/bin/hive -e "LOAD DATA INPATH '/data/grep-${i}/*' INTO TABLE grep_${i};"
+    # $HIVE_HOME/bin/hive -e "CREATE TABLE grep_${i}_select ( key STRING, field STRING );"
+    # $HIVE_HOME/bin/hive -e "SET mapreduce.input.fileinputformat.split.maxsize = 128000000;"
+    # $HIVE_HOME/bin/hive -e "INSERT OVERWRITE TABLE grep_${i}_select SELECT * FROM grep_${i} WHERE field LIKE '%XYZ%';" &
+    # sleep 14
 done
 wait
 cd ~
