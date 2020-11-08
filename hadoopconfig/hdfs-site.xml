@@ -21,6 +21,10 @@
         <value>3</value>
     </property>
     <property>
+        <name>dfs.blocksize</name>
+        <value>134217728</value>
+    </property>
+    <property>
         <name>dfs.namenode.name.dir</name>
         <value>/local/ddps2018/hadoopstorage/namenode</value>
     </property>
