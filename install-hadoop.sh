@@ -41,7 +41,7 @@ tar -xzf ~/ddps_1/hive.tar.gz -C ~/ddps_1
 echo "Unpacking Derby"
 # Unpack Hive
 mkdir ~/ddps_1/db-derby-10.14.1.0-bin
-tar -xJf ~/ddps_1/derby.tar.xz -C ~/ddps_1
+tar -xzf ~/ddps_1/derby.tar.gz -C ~/ddps_1
 
 echo "Copying over guava.jar to hive"
 rm ~/ddps_1/apache-hive-3.1.2-bin/lib/guava-19.0.jar
