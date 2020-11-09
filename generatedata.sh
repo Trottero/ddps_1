@@ -26,8 +26,9 @@ do
     $HIVE_HOME/bin/hive -e "CREATE TABLE grep_${i}_select ( key STRING, field STRING );"
     # $HIVE_HOME/bin/beeline -u jdbc:hive2:// --hivevar job_id="200" -f ~/ddps_1/query.sql
     $HIVE_HOME/bin/hive -e \
-        "SET mapreduce.input.fileinputformat.split.maxsize;\
-        SET mapreduce.input.fileinputformat.split.maxsize=134217728;\
+        "SET mapreduce.input.fileinputformat.split.maxsize=128000000;\
+        SET mapred.max.split.size=134217728;\
+        SET mapred.min.split.size=134217728;\
         SET mapreduce.input.fileinputformat.split.maxsize;\
         SET dfs.blocksize;\
         INSERT OVERWRITE TABLE grep_${i}_select SELECT * FROM grep_${i} WHERE field LIKE '%XYZ%';"
