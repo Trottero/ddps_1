@@ -24,7 +24,7 @@ echo "Downloading Hive"
 curl -s -o ~/ddps_1/hive.tar.gz https://ftp.nluug.nl/internet/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz && echo "Finished downloading hive" &
 
 echo "MySQL"
-curl -s -o ~/ddps_1/mysql.tar.xz https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.22-linux-glibc2.12-x86_64.tar.xz && echo "Finished downloading mysql" &
+curl -s -o ~/ddps_1/mysql.tar.xz https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.22-linux-glibc2.12-x86_64.tar.xz && echo "Finished downloading mysql" &
 
 wait
 
