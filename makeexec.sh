@@ -10,3 +10,4 @@ chmod a+x ~/ddps_1/init.sh
 chmod a+x ~/ddps_1/tests/distributed-grep.sh
 chmod a+x ~/ddps_1/hdfs-folders.sh
 chmod a+x ~/ddps_1/install-hadoop.sh
+chmod a+x ~/ddps_1/createderbyuser.sh
