@@ -13,31 +13,31 @@
   limitations under the License. See accompanying LICENSE file.
 -->
 <configuration>
-<!-- Site specific YARN configuration properties -->
-    <property>
-        <name>yarn.log-aggregation-enable</name>
-        <value>true</value>
-    </property>
-    <property>
-        <name>yarn.log-aggregation.retain-seconds</name>
-        <value>1000</value>
-    </property>
+  <!-- Site specific YARN configuration properties -->
+  <property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>yarn.log-aggregation.retain-seconds</name>
+    <value>1000</value>
+  </property>
 
-    <property>
-      <name>yarn.nodemanager.env-whitelist</name>
-      <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
-    </property>
+  <property>
+    <name>yarn.nodemanager.env-whitelist</name>
+    <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+  </property>
 
-    <property>
-      <name>yarn.nodemanager.aux-services</name>
-      <value>mapreduce_shuffle</value>
-    </property>
-    <property>
-      <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
-      <value>org.apache.hadoop.mapred.ShuffleHandler</value>
-    </property>
-    <property>
-      <name>yarn.resourcemanager.hostname</name>
-      <value>node008</value>
-    </property>
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>node056</value>
+  </property>
 </configuration>

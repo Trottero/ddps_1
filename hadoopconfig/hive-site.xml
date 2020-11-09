@@ -4,7 +4,7 @@
 <configuration>
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
-        <value>jdbc:derby://NODE:1527/metastore_db;create=true</value>
+        <value>jdbc:derby://node056:1527/metastore_db;create=true</value>
         <description>JDBC connect string for a JDBC metastore</description>
     </property>
 
