@@ -2,15 +2,16 @@
 jobid=0
 JOB_ORDER=()
 
-JOBS=(1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 10 10 10 10 10 50 50 50 100 100 200 200 400 800 4800)
+# JOBS=(1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 10 10 10 10 10 50 50 50 100 100 200 200 400 800 4800)
+JOBS=(1 2 10)
 
+cd /local/$USER_TO_USE 
 for i in ${JOBS[@]}
 do
     if [[ "$1" == '' ]]; then
         perl ~/ddps_1/hive-benchmark/source_code/datagen/teragen/teragen.pl $i $jobid
     fi
     
-    cd /local/$USER_TO_USE 
     $HIVE_HOME/bin/hive -e \
         "CREATE TABLE grep_${jobid} ( key STRING, field STRING ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;\
         LOAD DATA INPATH '/data/grep-${jobid}/*' INTO TABLE grep_${jobid}; \
@@ -25,7 +26,6 @@ wait
 JOB_ORDER=( $(echo "${JOB_ORDER[@]}" | sed -r 's/(.[^ ]* )/ \1 /g' | tr " " "\n" | shuf | tr -d " ") )
 
 echo  ${JOB_ORDER[@]}
-cd /local/$USER_TO_USE 
 for i in ${JOB_ORDER[@]}
 do
     echo "Executing query: ${i}"
