@@ -54,7 +54,7 @@ cp  ~/ddps_1/sql/* ~/ddps_1/apache-hive-3.1.2-bin/lib/
 # copy over MySQL to on host
 echo "Copying mySQL to localfolder!"
 mkdir /local/$USER_TO_USE/mysql-8.0.22-linux-glibc2.12-x86_64
-cp -a ~/ddps_1/mysql-8.0.22-linux-glibc2.12-x86_64/* /local/$USER_TO_USE/mysql-8.0.22-linux-glibc2.12-x86_64
+cp -a ~/ddps_1/mysql-8.0.22-linux-glibc2.12-x86_64/* /local/$USER_TO_USE/mysql-8.0.22-linux-glibc2.12-x86_64/
 
 # Clean up tars which we dont need anymore
 rm ~/ddps_1/hadoop.tar.gz
