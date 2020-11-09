@@ -28,5 +28,5 @@ $HADOOP_PATH/bin/hdfs dfs -rm -r /tmp
 echo "Starting historyserver"
 $HADOOP_HOME/bin/mapred --daemon start historyserver
 
-echo "Starting hiveserver"
-$HIVE_HOME/bin/hive --service hiveserver2 --hiveconf HIVE_SERVER2_THRIFT_BIND_HOST=localhost
+# echo "Starting hiveserver"
+# $HIVE_HOME/bin/hive --service hiveserver2 --hiveconf HIVE_SERVER2_THRIFT_BIND_HOST=localhost
