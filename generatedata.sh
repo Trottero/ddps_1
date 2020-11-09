@@ -22,7 +22,7 @@ do
         perl ~/ddps_1/hive-benchmark/source_code/datagen/teragen/teragen.pl $i $jobid
     fi
     
-    $HIVE_HOME/bin/hive -e -Dderby.system.home=/local/ddps2018 \
+    $HIVE_HOME/bin/hive -e \
         "CREATE TABLE grep_${jobid} ( key STRING, field STRING ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;\
         LOAD DATA INPATH '/data/grep-${jobid}/*' INTO TABLE grep_${jobid}; \
         CREATE TABLE grep_${jobid}_select ( key STRING, field STRING );" &
@@ -39,12 +39,10 @@ echo  ${JOB_ORDER[@]}
 for i in ${JOB_ORDER[@]}
 do
     echo "Executing query: ${i}"
-    $HIVE_HOME/bin/hive -e -Dderby.system.home=/local/ddps2018 \
+    $HIVE_HOME/bin/hive -e \
         "SET mapreduce.input.fileinputformat.split.maxsize=128000000;\
         SET mapred.max.split.size=134217728;\
         SET mapred.min.split.size=134217728;\
-        SET mapreduce.input.fileinputformat.split.maxsize;\
-        SET dfs.blocksize;\
         INSERT OVERWRITE TABLE grep_${i}_select SELECT * FROM grep_${i} WHERE field LIKE '%XYZ%';" &
     sleep 14
 done
