@@ -20,7 +20,9 @@ export YARN_HOME=$HADOOP_HOME
 export HADOOP_HOME=/local/$USER_TO_USE/hadoop-3.3.0
 export HIVE_HOME=/local/$USER_TO_USE/apache-hive-3.1.2-bin
 export DERBY_HOME=/local/$USER_TO_USE/db-derby-10.14.1.0-bin
+
 export DERBY_INSTALL=$DERBY_HOME
+export CLASSPATH=$DERBY_INSTALL/lib/derbytools.jar:$DERBY_INSTALL/lib/derbynet.jar
 
 export HADOOP_PATH=$HADOOP_HOME
 export HADOOP_YARN_HOME=$HADOOP_HOME
