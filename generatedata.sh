@@ -32,7 +32,7 @@ do
     # $HIVE_HOME/bin/hive -e "SET mapred.min.split.size;"
     # $HIVE_HOME/bin/hive -e "SET mapreduce.input.fileinputformat.split.minsize;"
 
-    $HIVE_HOME/bin/hive -e "SET mapred.max.split.size=134217728; SET mapreduce.input.fileinputformat.split.maxsize=134217728; INSERT OVERWRITE TABLE grep_${i}_select SELECT * FROM grep_${i} WHERE field LIKE '%XYZ%';" &
+    $HIVE_HOME/bin/hive -e "SET mapreduce.input.fileinputformat.split.maxsize; SET mapreduce.input.fileinputformat.split.maxsize=134217728; SET mapreduce.input.fileinputformat.split.maxsize; SET dfs.blocksize; INSERT OVERWRITE TABLE grep_${i}_select SELECT * FROM grep_${i} WHERE field LIKE '%XYZ%';" &
     sleep 14
 done
 wait
