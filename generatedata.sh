@@ -38,5 +38,7 @@ do
         INSERT OVERWRITE TABLE grep_${i}_select SELECT * FROM grep_${i} WHERE field LIKE '%XYZ%';" &
     sleep 14
 done
+echo "Done iterating through tasks, waiting 10 minutes for the rest of the tasks to finish now."
 wait
+sleep 600
 cd ~
