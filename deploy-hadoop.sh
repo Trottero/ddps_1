@@ -12,7 +12,7 @@ chmod a+x ~/ddps_1/makeexec.sh
 # First install hive and hadoop on this node in the home direcotry
 
 ### Check if a directory does not exist ###
-if [ ! -d "~/ddps_1/hadoop-3.3.0" ] 
+if [ ! -d "/home/${USER_TO_USE}/ddps_1/hadoop-3.3.0" ] 
 then
   echo "Hadoop directory does not exist" 
   . ~/ddps_1/install-hadoop.sh
