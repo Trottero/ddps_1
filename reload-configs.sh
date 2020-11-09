@@ -12,6 +12,7 @@ cd ~
 cp ~/ddps_1/hadoopconfig/* /local/$USER_TO_USE/hadoop-3.3.0/etc/hadoop
 
 cp ~/ddps_1/hadoopconfig/hive-site.xml /local/ddps2018/apache-hive-3.1.2-bin/conf
+cp ~/ddps_1/hadoopconfig/jpox.properties /local/ddps2018/apache-hive-3.1.2-bin/conf
 
 # Copy over for every worker node
 cat ~/ddps_1/hadoopconfig/workers | while read worker;
