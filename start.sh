@@ -29,4 +29,4 @@ echo "Starting historyserver"
 $HADOOP_HOME/bin/mapred --daemon start historyserver
 
 echo "Starting hiveserver"
-$HIVE_HOME/bin/hiveserver2
+$HIVE_HOME/bin/hive --service hiveserver2 --hiveconf HIVE_SERVER2_THRIFT_BIND_HOST=localhost
