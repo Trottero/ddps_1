@@ -1,5 +1,5 @@
-SET job_id
-SET hivevar:job_id
+SET job_id;
+SET hivevar:job_id;
 CREATE TABLE `grep_${hivevar:job_id}` ( key STRING, field STRING ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;
 LOAD DATA INPATH `/data/grep-${hivevar:job_id}/*` INTO TABLE `grep_${hivevar:job_id}`;
 CREATE TABLE `grep_${job_id}_select` ( key STRING, field STRING );
