@@ -41,7 +41,7 @@ tar -xzf ~/ddps_1/hive.tar.gz -C ~/ddps_1
 echo "Unpacking MySQL"
 # Unpack Hive
 mkdir ~/ddps_1/mysql-8.0.22-linux-glibc2.12-x86_64
-tar -xzf ~/ddps_1/mysql.tar.xz -C ~/ddps_1
+tar -xJf ~/ddps_1/mysql.tar.xz -C ~/ddps_1
 
 echo "Copying over guava.jar to hive"
 rm ~/ddps_1/apache-hive-3.1.2-bin/lib/guava-19.0.jar
