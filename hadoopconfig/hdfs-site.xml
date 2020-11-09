@@ -38,7 +38,7 @@
     </property>
     <property>
       <name>mapred.max.split.size</name>
-      <value>128000000</value>
+      <value>134217729</value>
   </property>    
   <property>
     <name>mapred.min.split.size</name>
