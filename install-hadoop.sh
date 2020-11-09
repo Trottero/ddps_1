@@ -26,16 +26,18 @@ rm -r ~/ddps_1/apache-hive-3.1.2-bin
 
 echo "Downloading Hadoop"
 # Download hadoop
-curl -o ~/ddps_1/hadoop.tar.gz https://ftp.nluug.nl/internet/apache/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz
+curl -s -o ~/ddps_1/hadoop.tar.gz https://ftp.nluug.nl/internet/apache/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz && echo "Finished downloading hadoop" &
+
+# Download hive on the namenode
+echo "Downloading Hive"
+curl -s -o ~/ddps_1/hive.tar.gz https://ftp.nluug.nl/internet/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz && echo "Finished downloading hive" &
+
+wait
 
 echo "Unpacking hadoop"
 # Unpack hadoop
 mkdir ~/ddps_1/hadoop-3.3.0
 tar -xzf ~/ddps_1/hadoop.tar.gz -C ~/ddps_1
-
-# Download hive on the namenode
-echo "Downloading Hive"
-curl -o ~/ddps_1/hive.tar.gz https://ftp.nluug.nl/internet/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
 
 echo "Unpacking Hive"
 # Unpack Hive
