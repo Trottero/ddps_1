@@ -31,6 +31,6 @@ wait
 . ~/ddps_1/reload-configs.sh
 
 # Initialize hive DB in /local/
-cd /local/$USER_TO_USE
-$HIVE_HOME/bin/schematool -dbType mysql -initSchema
-cd ~
+# cd /local/$USER_TO_USE
+# $HIVE_HOME/bin/schematool -dbType derby -initSchema
+# cd ~
