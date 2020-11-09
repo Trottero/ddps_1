@@ -32,5 +32,5 @@ wait
 
 # Initialize hive DB in /local/
 cd /local/$USER_TO_USE
-$HIVE_HOME/bin/schematool -dbType derby -initSchema
+$HIVE_HOME/bin/schematool -dbType mysql -initSchema
 cd ~

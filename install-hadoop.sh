@@ -39,6 +39,13 @@ echo "Copying over guava.jar to hive"
 rm ~/ddps_1/apache-hive-3.1.2-bin/lib/guava-19.0.jar
 cp  ~/ddps_1/hadoop-3.3.0/share/hadoop/common/lib/guava-27.0-jre.jar ~/ddps_1/apache-hive-3.1.2-bin/lib/
 
+
+echo "Installing mysql server"
+apt-get install mysql-server
+
+echo "Copying connector to hive folder"
+cp  ~/ddps_1/sql/* ~/ddps_1/apache-hive-3.1.2-bin/lib/
+
 # Clean up tars which we dont need anymore
 rm ~/ddps_1/hadoop.tar.gz
 rm ~/ddps_1/hive.tar.gz
