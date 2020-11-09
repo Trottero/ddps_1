@@ -4,7 +4,7 @@ JOB_ORDER=()
 
 # JOBS=(2)
 # JOBS=(2 2 2 2 2 2 2 2 2 2 2 2 2 2 10 10 10 10 10 10 10 10 20 20 20 20 20 20 40 40 40 40 40 40 80 80 80 80 160 160 160 960 960 960 960)
-JOBS=(6 10, 20)
+JOBS=(6 10 20)
 for i in ${JOBS[@]}
 do
     if [[ "$1" == '' ]]; then
@@ -13,7 +13,7 @@ do
     JOB_ORDER[$jobid]=$jobid
     let "jobid+=1" 
 done
-
+# 40, 80 | 6, 10, 20
 JOB_ORDER=( $(echo "${JOB_ORDER[@]}" | sed -r 's/(.[^ ]* )/ \1 /g' | tr " " "\n" | shuf | tr -d " ") )
 
 echo  ${JOB_ORDER[@]}
