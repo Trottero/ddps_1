@@ -9,9 +9,18 @@ do
     if [[ "$1" == '' ]]; then
         perl ~/ddps_1/hive-benchmark/source_code/datagen/teragen/teragen.pl $i $jobid
     fi
+    
+    cd /local/$USER_TO_USE 
+    $HIVE_HOME/bin/hive -e \
+        "CREATE TABLE grep_${jobid} ( key STRING, field STRING ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;\
+        LOAD DATA INPATH '/data/grep-${jobid}/*' INTO TABLE grep_${jobid}; \
+        CREATE TABLE grep_${jobid}_select ( key STRING, field STRING );" &
+
     JOB_ORDER[$jobid]=$jobid
     let "jobid+=1" 
 done
+wait
+
 # 40, 80 | 6, 10, 20
 JOB_ORDER=( $(echo "${JOB_ORDER[@]}" | sed -r 's/(.[^ ]* )/ \1 /g' | tr " " "\n" | shuf | tr -d " ") )
 
@@ -19,11 +28,7 @@ echo  ${JOB_ORDER[@]}
 cd /local/$USER_TO_USE 
 for i in ${JOB_ORDER[@]}
 do
-    echo "$i"
-    $HIVE_HOME/bin/hive -e "CREATE TABLE grep_${i} ( key STRING, field STRING ) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;"
-    $HIVE_HOME/bin/hive -e "LOAD DATA INPATH '/data/grep-${i}/*' INTO TABLE grep_${i};"
-    $HIVE_HOME/bin/hive -e "CREATE TABLE grep_${i}_select ( key STRING, field STRING );"
-    # $HIVE_HOME/bin/beeline -u jdbc:hive2:// --hivevar job_id="200" -f ~/ddps_1/query.sql
+    echo "Executing query: ${i}"
     $HIVE_HOME/bin/hive -e \
         "SET mapreduce.input.fileinputformat.split.maxsize=128000000;\
         SET mapred.max.split.size=134217728;\
