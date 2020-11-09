@@ -24,7 +24,7 @@ fi
 cat ~/ddps_1/hadoopconfig/workers | while read worker;
 do
   echo "Initializing worker: ${worker}"
-  echo "" | ssh $worker ~/ddps_1/init.sh &
+  echo "" | ssh $worker ~/ddps_1/init.sh
 done
 wait
 # Overwrite configs at every node
