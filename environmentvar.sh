@@ -19,6 +19,7 @@ export YARN_HOME=$HADOOP_HOME
 
 export HADOOP_HOME=/local/$USER_TO_USE/hadoop-3.3.0
 export HIVE_HOME=/local/$USER_TO_USE/apache-hive-3.1.2-bin
+export MYSQL_HOME=/local/$USER_TO_USE/mysql-8.0.22-linux-glibc2.12-x86_64
 
 export HADOOP_PATH=$HADOOP_HOME
 export HADOOP_YARN_HOME=$HADOOP_HOME

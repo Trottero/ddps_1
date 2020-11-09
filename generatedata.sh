@@ -5,6 +5,16 @@ JOB_ORDER=()
 JOBS=(1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 10 10 10 10 10 50 50 50 100 100 200 200 400 800 4800)
 # JOBS=(1 2 10)
 
+# First generate sql users
+for d in {0..32}
+do
+# mysql -u root -p <Give password while installing DB>
+# mysql> CREATE USER 'user1'@'%' IDENTIFIED BY 'user1pass';
+# mysql> GRANT ALL PRIVILEGES ON *.* TO 'hduserdb'@'%' WITH GRANT OPTION;
+# mysql> flush privileges;
+    echo "${d}"
+done
+
 cd /local/$USER_TO_USE 
 for i in ${JOBS[@]}
 do

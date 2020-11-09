@@ -8,3 +8,4 @@ apache-hive-3.1.2-bin/
 *.tar.gz
 derby.log
 metastore_db/
+mysql-8.0.22-linux-glibc2.12-x86_64/
