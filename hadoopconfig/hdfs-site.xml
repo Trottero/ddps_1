@@ -36,12 +36,12 @@
         <name>dfs.hosts</name>
         <value>/home/ddps2018/ddps_1/hadoopconfig/workers</value>
     </property>
-    <property>
+    <!-- <property>
       <name>mapred.max.split.size</name>
-      <value>134217729</value>
+      <value>128000000</value>
   </property>    
   <property>
     <name>mapred.min.split.size</name>
     <value>128000000</value>
-</property>
+</property> -->
 </configuration>
