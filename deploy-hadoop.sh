@@ -23,6 +23,7 @@ fi
 # For every worker in the list, copy over the hadoop and hive binaries to /local/user/
 cat ~/ddps_1/hadoopconfig/workers | while read worker;
 do
+  echo "Initializing worker: ${worker}"
   echo "" | ssh $worker ~/ddps_1/init.sh
 done
 
