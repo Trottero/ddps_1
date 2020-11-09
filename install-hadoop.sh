@@ -13,7 +13,7 @@ chmod a+x ~/ddps_1/makeexec.sh
 # Remove old install dirs.
 rm -r ~/ddps_1/hadoop-3.3.0
 rm -r ~/ddps_1/apache-hive-3.1.2-bin
-
+rm -r ~/ddps_1/db-derby-10.14.1.0-bin
 
 echo "Downloading Hadoop"
 # Download hadoop
@@ -62,7 +62,7 @@ cp -a ~/ddps_1/db-derby-10.14.1.0-bin/* /local/$USER_TO_USE/db-derby-10.14.1.0-b
 # Clean up tars which we dont need anymore
 rm ~/ddps_1/hadoop.tar.gz
 rm ~/ddps_1/hive.tar.gz
-rm ~/ddps_1/derby.tar.xz
+rm ~/ddps_1/derby.tar.gz
 
 . ~/ddps_1/add-to-path.sh
 echo "Done installing!"
