@@ -6,7 +6,7 @@
 # Script variables
 
 # Derby server
-. ~/ddps_1/startderbyserver.sh
+(. ~/ddps_1/startderbyserver.sh)
 
 # HDFS Cluster
 chmod a+x $HADOOP_PATH/sbin/start-dfs.sh
