@@ -18,7 +18,7 @@
 <configuration>
   <property>
     <name>fs.defaultFS</name>
-    <value>hdfs://node056:9000</value>
+    <value>hdfs://node063:9000</value>
   </property>
   <property>
     <name>io.file.buffer.size</name>
