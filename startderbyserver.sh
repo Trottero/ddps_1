@@ -5,6 +5,6 @@ cd $DERBY_HOME/bin/
 # NetworkServer CP
 . ./setNetworkServerCP
 # startNetworkserver
-. ./startNetworkServer &
+(. ./startNetworkServer)
 
 # Schematool init 

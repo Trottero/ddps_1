@@ -54,11 +54,6 @@ cp ~/ddps_1/db-derby-10.14.1.0-bin/lib/derbytools.jar ~/ddps_1/apache-hive-3.1.2
 cp ~/ddps_1/db-derby-10.14.1.0-bin/lib/derbyclient.jar ~/ddps_1/hadoop-3.3.0/lib/
 cp ~/ddps_1/db-derby-10.14.1.0-bin/lib/derbytools.jar ~/ddps_1/hadoop-3.3.0/lib/
 
-# copy over MySQL to on host
-echo "Copying Derby to localfolder"
-mkdir /local/$USER_TO_USE/db-derby-10.14.1.0-bin
-cp -a ~/ddps_1/db-derby-10.14.1.0-bin/* /local/$USER_TO_USE/db-derby-10.14.1.0-bin/
-
 # Clean up tars which we dont need anymore
 rm ~/ddps_1/hadoop.tar.gz
 rm ~/ddps_1/hive.tar.gz

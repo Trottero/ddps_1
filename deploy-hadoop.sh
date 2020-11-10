@@ -20,6 +20,11 @@ fi
 
 . ~/ddps_1/init.sh
 
+# copy over Derby to on host
+echo "Copying Derby to localfolder"
+mkdir /local/$USER_TO_USE/db-derby-10.14.1.0-bin
+cp -a ~/ddps_1/db-derby-10.14.1.0-bin/* /local/$USER_TO_USE/db-derby-10.14.1.0-bin/
+
 # For every worker in the list, copy over the hadoop and hive binaries to /local/user/
 cat ~/ddps_1/hadoopconfig/workers | while read worker;
 do
@@ -27,11 +32,13 @@ do
   echo "" | ssh $worker ~/ddps_1/init.sh
 done
 wait
+
 # Overwrite configs at every node
 . ~/ddps_1/reload-configs.sh
 
 # Start derby server so we can create schema
 . ~/ddps_1/startderbyserver.sh
+
 
 # wait 5 seconds to be sure that the server is launched
 sleep 5
