@@ -30,7 +30,13 @@ wait
 # Overwrite configs at every node
 . ~/ddps_1/reload-configs.sh
 
-# Initialize hive DB in /local/
-# cd /local/$USER_TO_USE
-# $HIVE_HOME/bin/schematool -dbType derby -initSchema
-# cd ~
+# Start derby server so we can create schema
+. ~/ddps_1/startderbyserver.sh
+
+# wait 5 seconds to be sure that the server is launched
+sleep 5
+# Initialize derby db/
+$HIVE_HOME/bin/schematool -dbType derby -initSchema
+
+# Stop derby server
+. ~/ddps_1/stopderbyserver.sh

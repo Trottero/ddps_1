@@ -3,6 +3,9 @@
 
 # Script variables
 
+# Stop derby server
+. ~/ddps_1/stopderbyserver.sh
+
 # Stop HDFS cluster
 chmod a+x $HADOOP_PATH/sbin/stop-dfs.sh
 $HADOOP_PATH/sbin/stop-dfs.sh
