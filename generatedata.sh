@@ -30,6 +30,7 @@ do
     JOB_ORDER[$jobid]=$jobid
     let "jobid+=1" 
 done
+echo "Waiting for tasks to complete!"
 wait
 
 # 40, 80 | 6, 10, 20
