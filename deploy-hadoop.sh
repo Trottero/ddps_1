@@ -37,8 +37,7 @@ wait
 . ~/ddps_1/reload-configs.sh
 
 # Start derby server so we can create schema
-. ~/ddps_1/startderbyserver.sh
-
+. ~/ddps_1/startderbyserver.sh &!
 
 # wait 5 seconds to be sure that the server is launched
 sleep 5
