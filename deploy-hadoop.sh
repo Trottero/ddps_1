@@ -31,7 +31,7 @@ NODE_N=0
 cat ~/ddps_1/hadoopconfig/workers | while read worker;
 do
   echo "Initializing worker: ${worker}"
-  echo "" | ssh $worker ~/ddps_1/init.sh &
+  echo "" | ssh $worker ~/ddps_1/init.sh
   NODE_INIT_PIDS[$NODE_N]=$!
   let "NODE_N+=1" 
 done
