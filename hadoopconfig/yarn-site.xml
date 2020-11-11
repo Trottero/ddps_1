@@ -44,4 +44,12 @@
     <name>yarn.resourcemanager.scheduler.class</name>
     <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler</value>
   </property>
+  <property>
+    <name>yarn.scheduler.fair.locality.threshold.node</name>
+    <value>7</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.fair.locality.threshold.rack</name>
+    <value>7</value>
+  </property>
 </configuration>
