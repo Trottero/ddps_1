@@ -38,7 +38,7 @@
   </property>
   <property>
     <name>yarn.resourcemanager.hostname</name>
-    <value>node008</value>
+    <value>node004</value>
   </property>
   <property>
     <name>yarn.resourcemanager.scheduler.class</name>
